@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gamesparksllc.github.io/sitemap.xml

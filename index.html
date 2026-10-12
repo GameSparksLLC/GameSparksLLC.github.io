@@ -1,20 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b42127">
+  <meta name="description" content="GameSparks makes playful mobile games built around ideas worth exploring.">
+  <title>GameSparks — A little spark. A lot to play.</title>
+  <link rel="icon" href="assets/images/gamesparks-logo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Privacy Policy</h1>
-        <div id="privacy-policy">
-            </div>
-        <p class="website-link">
-           
-        </p>
-    </div>
-    <script src="script.js"></script>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gamesparks-logo.png" alt="GameSparks logo"><span class="brand-note">Games worth<br>one more round.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#studio">Studio</a><a href="#games">Games</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>A little spark.<br><span>A lot to play.</span></h1>
+        <p>We make mobile games that start with one fun idea and grow into worlds you want to jump into.</p>
+        <a class="button button-red" href="#games">Meet the game <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 4l6 6-6 6"/></svg></a>
+      </div>
+      <div class="hero-art" aria-label="Nyan, a hero from Horde Survivor Arena 3D">
+        <span class="hero-burst burst-one" aria-hidden="true"></span><span class="hero-burst burst-two" aria-hidden="true"></span>
+        <span class="hero-sun" aria-hidden="true"></span>
+        <img class="hero-character" src="assets/images/nyan-portrait.png" alt="Nyan, a cat hero from Horde Survivor Arena 3D">
+        <span class="hero-art-label">Ready for the horde?</span>
+      </div>
+    </section>
+    <section id="studio" class="studio section-wrap">
+      <div><h2>Ideas made<br>for play.</h2><p>GameSparks LLC makes games for phones and tablets. We like clever ideas, colorful worlds and the little details that make a good game feel great.</p></div>
+    </section>
+    <section id="games" class="games section-wrap">
+      <div class="section-heading"><h2>Meet the horde.</h2><span class="game-count">OUR CURRENT GAME</span></div>
+      <article class="game-feature">
+        <div class="game-art"><span class="game-art-spark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 2l4.4 15.6L44 11l-7.2 15.6L47 34l-16.3-.7L24 48l-5-14.7L2 38l8-14.6L0 13l16.2 2.3z"/></svg></span><img src="assets/images/nyan-portrait.png" alt="Nyan, one of the heroes in Horde Survivor Arena 3D"><span class="arena-label">SURVIVE<br>THE HORDE</span></div>
+        <div class="game-copy"><p class="game-platform">ANDROID · iOS</p><h3>Horde Survivor Arena 3D</h3><p>Hold your ground, build your loadout and face the next wave in a colorful arena survival game.</p><span class="availability">In development</span></div>
+      </article>
+      <div class="upcoming-work"><span class="upcoming-label">More games ahead</span><p>We’re developing more mobile games. We’ll introduce each one here when it’s ready to share.</p><span class="upcoming-spark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 2l4.4 15.6L44 11l-7.2 15.6L47 34l-16.3-.7L24 48l-5-14.7L2 38l8-14.6L0 13l16.2 2.3z"/></svg></span></div>
+    </section>
+    <section class="closing section-wrap"><p>Go on.<br><em>Take another turn.</em></p><a href="support.html">Need a hand? Visit support <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M6 5h9v9"/></svg></a></section>
+  </main>
+  <footer class="site-footer">
+    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gamesparks-logo.png" alt="GameSparks logo"><span class="brand-note">Games worth<br>one more round.</span></a>
+    <p>Mobile games.<br>Made by GameSparks LLC.</p>
+    <nav aria-label="Legal and support"><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a></nav>
+    <small>© <span data-year>2026</span> GameSparks LLC</small>
+  </footer>
+  <script src="script.js" defer></script>
 </body>
 </html>
