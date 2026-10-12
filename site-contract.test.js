@@ -76,9 +76,20 @@ test("the site keeps mobile and privacy constraints in source", () => {
 	assert.doesNotMatch(siteSource, /googletagmanager|google-analytics|facebook\.net\/tr|hotjar/i);
 });
 
-// Disclose that some crash services retain reports locally until players opt in.
-test("the privacy policy explains optional crash reporting and deferred uploads", () => {
+// Keep the published policy aligned with the current no-prompt Firebase analytics behavior.
+test("the privacy policy describes Horde Survivor Arena 3D analytics collection", () => {
+	const privacy = pages.get("privacy.html");
+	assert.match(privacy, /Horde Survivor Arena 3D sends gameplay and feature-use events, plus coarse performance measurements, to Firebase Analytics after Firebase initializes/i);
+	assert.match(privacy, /Firebase's pseudonymous app-instance identifier/i);
+	assert.match(privacy, /GameSparks events do not include your display name, chat text, linked account ID, or raw exception text/i);
+	assert.match(privacy, /do not require an operating-system permission prompt/i);
+	assert.match(privacy, /Analytics data is not used to personalize ads in the current project/i);
+	assert.doesNotMatch(privacy, /analytics[^.]{0,120}(?:opt-in|enable it in settings|manage analytics)/i);
+});
+
+// Preserve the company-wide explanation that some providers defer crash uploads.
+test("the privacy policy covers crash diagnostics and deferred collection", () => {
 	const privacy = pages.get("privacy.html");
 	assert.match(privacy, /Crash diagnostics[\s\S]*?if a game offers crash reporting[\s\S]*?optional/i);
-	assert.match(privacy, /keep reports recorded while sharing is off on the device and upload them if you later enable reporting/i);
+	assert.match(privacy, /Some services keep reports recorded on the device and upload them if collection is later enabled/i);
 });
