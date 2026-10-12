@@ -1,52 +1,178 @@
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background: linear-gradient(to bottom right, #cce0ff, #66b3ff); /* Lighter blue gradient */
-    padding-top: 40px; /* Add padding to the body */
-    padding-bottom: 40px;
-    box-sizing: border-box; /* Include padding in the body's height calculation */
+@font-face {
+  font-family: Fredoka;
+  src: url("assets/fonts/Fredoka.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
 }
 
-.container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 800px;
-    width: 90%;
-    
+:root {
+  color-scheme: light;
+  --ink: #302633;
+  --paper: #fff9ec;
+  --white: #fffef9;
+  --red: #b42127;
+  --red-deep: #87171e;
+  --sun: #ffd957;
+  --teal: #55c4c4;
+  --blue: #72d2e2;
+  --muted: #5b5158;
+  --rule: #e2d6bf;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  accent-color: var(--red);
+  caret-color: var(--red);
+  scrollbar-color: var(--red) var(--paper);
 }
 
-.title {
-    color: #3f2b96;
-    margin-bottom: 20px;
-    font-size: 2.5em;
+* { box-sizing: border-box; }
+html, body { max-width: 100%; }
+body { min-width: 320px; margin: 0; background: var(--paper); }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+::selection { color: var(--white); background: var(--red); }
+.skip-link { position: absolute; z-index: 10; inset-block-start: 8px; inset-inline-start: 8px; padding: 12px 16px; transform: translateY(-150%); color: var(--white); background: var(--ink); }
+.skip-link:focus { transform: none; }
+
+.site-header { min-height: 112px; padding: 10px clamp(20px, 6vw, 88px); display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 3px solid var(--ink); background: var(--paper); }
+.wordmark { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 16px; text-decoration: none; }
+.site-logo { display: block; width: 88px; height: 88px; border: 3px solid var(--ink); border-radius: 18px; object-fit: contain; background: var(--red); box-shadow: 0 7px 14px #3026332e; transform: rotate(-3deg); }
+.brand-note { color: var(--ink); font-family: Fredoka, "Trebuchet MS", sans-serif; font-size: 15px; font-weight: 600; line-height: 1.12; }
+.site-nav { display: flex; align-items: center; gap: clamp(10px, 2vw, 28px); }
+.site-nav a, .site-footer nav a { padding: 10px 13px; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--white); background: var(--red); }
+.menu-toggle { display: none; min-height: 44px; padding: 9px 17px; border: 2px solid var(--ink); border-radius: 999px; color: var(--ink); background: var(--sun); font: 700 15px "Trebuchet MS", Arial, sans-serif; }
+
+.hero { min-height: min(700px, calc(100svh - 90px)); padding: 60px clamp(22px, 8vw, 120px) 74px; position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .86fr); align-items: center; gap: clamp(36px, 6vw, 92px); background-color: var(--sun); background-image: radial-gradient(#30263324 1.5px, transparent 1.5px); background-size: 22px 22px; }
+.hero-copy { position: relative; z-index: 1; min-width: 0; max-width: 680px; }
+h1, h2, h3, .closing p { font-family: Fredoka, "Trebuchet MS", sans-serif; font-weight: 600; letter-spacing: -.035em; }
+.hero h1 { margin: 0 0 24px; color: var(--red); font-size: clamp(58px, 8vw, 108px); line-height: .94; }
+.hero h1 span { color: var(--ink); }
+.hero-copy > p { max-width: 47ch; margin: 0 0 30px; color: #3f3540; font-size: clamp(18px, 2vw, 22px); line-height: 1.5; }
+.button { min-height: 54px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; border: 2px solid var(--ink); border-radius: 999px; font-size: 15px; font-weight: 750; text-decoration: none; transition: transform 180ms ease-out, background-color 180ms ease-out; }
+.button:hover { transform: translateY(-3px) rotate(-1deg); }
+.button svg, .closing > a svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.button-red { color: var(--white); background: var(--red); }
+.button-red:hover { background: var(--red-deep); }
+.hero-art { min-height: 390px; aspect-ratio: .96; position: relative; isolation: isolate; overflow: hidden; border: 4px solid var(--ink); border-radius: 48% 52% 43% 57% / 44% 40% 60% 56%; background: var(--teal); box-shadow: 0 18px 34px #45303b35; transform: rotate(3deg); }
+.hero-art::before { content: ""; position: absolute; z-index: -1; inset: 9% 13% 16%; border: 3px dashed #fff5cb; border-radius: 50%; transform: rotate(-18deg); }
+.hero-art::after { content: ""; position: absolute; z-index: -1; width: 60%; aspect-ratio: 1; inset: auto 18% -22%; border-radius: 50%; background: var(--blue); }
+.hero-sun { width: 48%; aspect-ratio: 1; position: absolute; top: 10%; right: 11%; border: 3px solid var(--ink); border-radius: 50%; background: var(--sun); }
+.hero-character { width: min(82%, 360px); position: absolute; z-index: 1; left: 9%; bottom: -4%; filter: drop-shadow(0 12px 7px #30263346); }
+.hero-burst { width: 21px; aspect-ratio: 1; position: absolute; z-index: 2; border: 3px solid var(--red); transform: rotate(45deg); }
+.burst-one { top: 17%; left: 12%; }
+.burst-two { top: 48%; right: 12%; width: 14px; border-color: var(--white); }
+.hero-art-label { position: absolute; z-index: 2; left: 46%; bottom: 12%; padding: 10px 15px; border: 2px solid var(--ink); border-radius: 999px; color: var(--ink); background: var(--white); font-family: Fredoka, "Trebuchet MS", sans-serif; font-size: 16px; font-weight: 600; white-space: nowrap; transform: rotate(-6deg); }
+
+.section-wrap { padding-inline: clamp(22px, 8vw, 120px); }
+.studio { padding-block: 114px 126px; display: grid; grid-template-columns: 1fr; background: var(--paper); }
+.studio > div { width: min(100%, 820px); margin-inline-start: auto; }
+.section-label { color: var(--red-deep); font-family: Fredoka, "Trebuchet MS", sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0; }
+.studio h2, .section-heading h2 { margin: 0 0 20px; font-size: clamp(42px, 5vw, 67px); line-height: 1; }
+.studio p { max-width: 62ch; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.7; }
+.games { padding-block: 88px 100px; border-block: 3px solid var(--ink); background: #fff0d1; }
+.section-heading { margin-bottom: 34px; display: flex; align-items: end; justify-content: space-between; gap: 28px; }
+.section-heading h2 { margin-bottom: 0; color: var(--red); }
+.game-count, .game-platform { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.game-feature { min-height: 390px; display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(280px, .96fr); overflow: hidden; border: 3px solid var(--ink); border-radius: 28px; background: var(--white); box-shadow: 0 12px 28px #45303b24; }
+.game-art { min-height: 340px; position: relative; overflow: hidden; display: grid; place-items: center; background-color: var(--blue); background-image: radial-gradient(#fff9ec78 2px, transparent 2px); background-size: 24px 24px; }
+.game-art::before { content: ""; position: absolute; width: 69%; aspect-ratio: 1; top: 8%; left: 16%; border: 4px solid var(--ink); border-radius: 46% 54% 51% 49%; background: var(--sun); transform: rotate(-12deg); }
+.game-art img { width: min(70%, 300px); max-height: 96%; position: absolute; z-index: 1; left: 13%; bottom: -5%; object-fit: contain; filter: drop-shadow(0 10px 5px #30263335); }
+.game-art-spark { width: 52px; aspect-ratio: 1; position: absolute; z-index: 2; top: 13%; right: 20%; }
+.game-art-spark svg { display: block; width: 100%; height: 100%; fill: var(--red); stroke: var(--ink); stroke-linejoin: round; stroke-width: 1.5; }
+.arena-label { position: absolute; z-index: 3; right: 5%; bottom: 10%; padding: 12px 16px; border: 2px solid var(--ink); border-radius: 14px; color: var(--white); background: var(--red); font-family: Fredoka, "Trebuchet MS", sans-serif; font-size: clamp(16px, 2vw, 24px); font-weight: 700; letter-spacing: .02em; line-height: 1; text-align: center; transform: rotate(4deg); }
+.game-copy { padding: clamp(28px, 5vw, 66px); align-self: center; }
+.game-copy h3 { margin: 0 0 15px; color: var(--ink); font-size: clamp(32px, 3.6vw, 47px); line-height: 1.02; }
+.game-platform { margin: 0 0 16px; }
+.game-copy > p:not(.game-platform) { max-width: 46ch; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.availability { display: inline-block; margin-top: 8px; padding: 8px 13px; border: 2px solid var(--ink); border-radius: 999px; color: var(--ink); background: var(--sun); font-size: 12px; font-weight: 800; }
+.upcoming-work { min-height: 118px; margin-top: 30px; padding: 22px 26px; display: grid; grid-template-columns: minmax(140px, .45fr) minmax(0, 1.4fr) 44px; align-items: center; gap: 24px; border: 2px solid var(--ink); border-radius: 20px; background: var(--teal); }
+.upcoming-label { color: var(--ink); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.upcoming-work p { max-width: 56ch; margin: 0; color: #20383a; font-size: 16px; line-height: 1.6; }
+.upcoming-spark svg { width: 38px; height: 38px; fill: var(--sun); stroke: var(--ink); stroke-linejoin: round; stroke-width: 2; }
+.closing { min-height: 320px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.closing p { margin: 0; color: var(--ink); font-size: clamp(38px, 5vw, 65px); line-height: 1.04; }
+.closing p em { color: var(--red); font-style: normal; }
+.closing > a { padding: 14px 0; display: inline-flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--red); color: var(--red-deep); font-weight: 800; text-decoration: none; }
+.site-footer { padding: 38px clamp(20px, 6vw, 88px); display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 28px; border-top: 3px solid var(--ink); color: var(--ink); background: var(--white); }
+.site-footer .site-logo { width: 72px; height: 72px; }
+.site-footer > p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.site-footer nav a { color: var(--ink); }
+.site-footer nav a:hover { background: var(--sun); }
+.site-footer small { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+.legal-page { width: min(100% - 44px, 1120px); margin-inline: auto; padding-block: 80px 104px; }
+.legal-heading { max-width: 760px; padding-bottom: 42px; border-bottom: 2px solid var(--rule); }
+.legal-heading h1, .support-page h1 { margin: 16px 0 20px; color: var(--red); font-size: clamp(48px, 7vw, 82px); line-height: .98; }
+.legal-heading > p:not(.effective-date) { max-width: 67ch; margin: 0 0 18px; color: var(--muted); font-size: 18px; line-height: 1.65; }
+.effective-date { margin: 0; color: var(--muted); font-size: 13px; }
+.contents { margin-block: 30px 58px; padding: 16px 0; display: flex; flex-wrap: wrap; gap: 10px; border-block: 2px solid var(--rule); }
+.contents a { padding: 8px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--white); font-size: 13px; font-weight: 700; }
+.contents a:hover { border-color: var(--red); background: #ffedcf; }
+.legal-copy { max-width: 69ch; }
+.legal-copy section { margin-bottom: 44px; scroll-margin-top: 24px; }
+.legal-copy h2, .support-guidance h2 { margin: 0 0 12px; color: var(--red-deep); font-family: Fredoka, "Trebuchet MS", sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -.02em; }
+.legal-copy p, .legal-copy li, .support-page > p, .support-guidance p { color: #403840; font-size: 16px; line-height: 1.78; }
+.legal-copy p:last-child { margin-bottom: 0; }
+.legal-copy ul { padding-inline-start: 1.3em; }
+.legal-copy li { padding-inline-start: .3em; margin-bottom: 10px; }
+.legal-copy a, .support-guidance a { color: #76252b; font-weight: 700; }
+.policy-note { max-width: 69ch; margin-top: 48px; padding: 22px 24px; border: 2px solid var(--ink); border-radius: 18px; color: var(--ink); background: #ffedcf; line-height: 1.65; }
+.support-page { min-height: 680px; width: min(100% - 44px, 1000px); margin-inline: auto; padding-block: 86px 110px; }
+.support-page > p { max-width: 64ch; font-size: 18px; }
+.support-email { max-width: 100%; margin-block: 18px 60px; padding: 0 0 10px; display: inline-flex; align-items: center; gap: 18px; border-bottom: 3px solid var(--red); color: var(--red-deep); font-size: clamp(20px, 4vw, 30px); font-weight: 800; text-decoration: none; overflow-wrap: anywhere; }
+.support-guidance { max-width: 68ch; }
+.support-guidance h2 { margin-top: 30px; }
+
+@media (max-width: 760px) {
+  .site-header { min-height: 88px; padding-inline: 18px; position: relative; z-index: 3; }
+  .wordmark { gap: 10px; }
+  .site-logo { width: 64px; height: 64px; border-radius: 14px; }
+  .brand-note { font-size: 12px; }
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; font: 700 15px "Trebuchet MS", Arial, sans-serif; }
+  .site-nav { position: absolute; top: 100%; inset-inline: 0; padding: 8px 18px 14px; display: none; align-items: stretch; flex-direction: column; gap: 4px; border-bottom: 3px solid var(--ink); background: var(--paper); }
+  .site-nav.is-open { display: flex; }
+  .site-nav a { padding: 13px 16px; }
+  .hero { min-height: auto; padding: 62px 22px 66px; grid-template-columns: minmax(0, 1fr); gap: 42px; }
+  .hero h1 { font-size: clamp(42px, 11vw, 68px); }
+  .hero-copy > p { width: min(100%, 34ch); }
+  .hero-art { width: min(100%, 320px); min-height: 0; margin-inline: auto; }
+  .hero-art-label { left: 50%; bottom: 17%; padding: 8px 12px; font-size: 13px; transform: translateX(-50%) rotate(-6deg); }
+  .studio { padding-block: 76px 84px; }
+  .studio h2, .section-heading h2 { font-size: clamp(42px, 11vw, 56px); }
+  .games { padding-block: 68px 74px; }
+  .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+  .game-feature { grid-template-columns: 1fr; }
+  .game-art { min-height: 300px; }
+  .game-art img { width: min(68%, 270px); }
+  .game-copy { padding: 30px 24px 34px; }
+  .upcoming-work { grid-template-columns: minmax(0, 1fr) 38px; gap: 10px 16px; padding: 18px; }
+  .upcoming-label, .upcoming-work p { grid-column: 1; }
+  .upcoming-work p { font-size: 15px; }
+  .upcoming-spark { grid-column: 2; grid-row: 1 / span 2; }
+  .closing { min-height: 280px; padding-block: 55px; align-items: start; flex-direction: column; justify-content: center; }
+  .site-footer { grid-template-columns: auto 1fr; gap: 20px 16px; }
+  .site-footer .site-logo { width: 60px; height: 60px; }
+  .site-footer .brand-note { font-size: 12px; }
+  .site-footer nav { grid-column: 1 / -1; }
+  .site-footer small { grid-column: 1 / -1; }
+  .legal-page { width: min(100% - 36px, 720px); padding-block: 58px 78px; }
+  .legal-heading { padding-bottom: 32px; }
+  .legal-heading h1, .support-page h1 { font-size: clamp(48px, 13vw, 68px); }
+  .contents { margin-block: 24px 42px; gap: 8px; }
+  .contents a { padding: 7px 10px; }
+  .legal-copy section { margin-bottom: 38px; }
+  .support-page { width: min(100% - 36px, 720px); padding-block: 62px 80px; }
 }
 
-#privacy-policy {
-    text-align: left;
-    font-size: 0.9em;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.website-link {
-    font-size: 0.9em;
-    margin-top: 30px;
-}
-
-.website-link a {
-    color: #3f2b96;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.website-link a:hover {
-    text-decoration: underline;
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
