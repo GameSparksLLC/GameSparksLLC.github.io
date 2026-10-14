@@ -87,9 +87,12 @@ test("the privacy policy describes Horde Survivor Arena 3D analytics collection"
 	assert.doesNotMatch(privacy, /analytics[^.]{0,120}(?:opt-in|enable it in settings|manage analytics)/i);
 });
 
-// Preserve the company-wide explanation that some providers defer crash uploads.
-test("the privacy policy covers crash diagnostics and deferred collection", () => {
+// Keep the game's automatic Crashlytics disclosure accurate.
+test("the privacy policy describes automatic crash reporting without a prompt", () => {
 	const privacy = pages.get("privacy.html");
-	assert.match(privacy, /Crash diagnostics[\s\S]*?if a game offers crash reporting[\s\S]*?optional/i);
-	assert.match(privacy, /Some services keep reports recorded on the device and upload them if collection is later enabled/i);
+	assert.match(privacy, /Crash diagnostics[\s\S]*?Horde Survivor Arena 3D uses Firebase Crashlytics to collect crash reports automatically/i);
+	assert.match(privacy, /without a launch permission prompt or an in-game opt-in/i);
+	assert.match(privacy, /We do not add display names, clan chat, linked account IDs, or user-entered text as custom crash data/i);
+	assert.match(privacy, /https:\/\/firebase\.google\.com\/support\/privacy/i);
 });
+
