@@ -1,0 +1,12 @@
+{
+  "name": "gamesparks-company-site",
+  "private": true,
+  "scripts": {
+    "dev": "node dev-server.mjs",
+    "build:hero": "esbuild assets/js-src/hero-scene.js --bundle --minify --format=esm --target=es2020 --outfile=assets/js/hero-scene.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "three": "0.186.0"
+  }
+}

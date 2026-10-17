@@ -4,7 +4,7 @@ const path = require("node:path");
 const test = require("node:test");
 
 const root = __dirname;
-const pageNames = ["index.html", "terms.html", "privacy.html", "support.html"];
+const pageNames = ["index.html", "terms.html", "privacy.html", "contact.html"];
 const pages = new Map(pageNames.map((name) => [name, fs.readFileSync(path.join(root, name), "utf8")]));
 
 // Return the attribute value from a matched HTML tag.
@@ -36,29 +36,36 @@ test("all local page links and fragments resolve", () => {
 });
 
 // Keep the owner's supplied logo visible throughout the shared site shell.
-test("every page uses the supplied GameSparks logo in its header and footer", () => {
+test("every page uses the supplied navigation and footer logos", () => {
 	for (const [pageName, source] of pages) {
-		assert.match(source, /<header\b[\s\S]*?<img\b[^>]*class=["']site-logo["'][^>]*src=["']assets\/images\/gamesparks-logo\.png["']/i, `${pageName} needs the supplied logo in its header`);
-		assert.match(source, /<footer\b[\s\S]*?<img\b[^>]*class=["']site-logo["'][^>]*src=["']assets\/images\/gamesparks-logo\.png["']/i, `${pageName} needs the supplied logo in its footer`);
+		assert.match(source, /<header\b[\s\S]*?<img\b[^>]*class=["']site-logo["'][^>]*src=["']assets\/images\/gs-nav-icon\.webp["']/i, `${pageName} needs the supplied navigation logo`);
+		assert.match(source, /<footer\b[\s\S]*?<img\b[^>]*class=["']site-logo["'][^>]*src=["']assets\/images\/gs-icon\.webp["']/i, `${pageName} needs the supplied footer icon`);
+		assert.match(source, /<link\s+rel=["']icon["'][^>]*href=["']assets\/images\/gs-favicon\.png["']/i, `${pageName} needs the supplied favicon`);
 	}
 	const home = pages.get("index.html");
 	const styles = fs.readFileSync(path.join(root, "style.css"), "utf8");
-	assert.match(home, /Nyan, a cat hero from Horde Survivor Arena 3D/i);
-	assert.match(home, /class=["']hero-brand-sticker["'][^>]*>[\s\S]*?src=["']assets\/images\/gamesparks-logo\.png["']/i);
-	assert.match(styles, /\.hero-brand-sticker\s*\{[^}]*width:\s*34%/s);
-	assert.match(styles, /@media\s*\(min-width:\s*761px\)\s*and\s*\(max-width:\s*940px\)/i);
+	assert.match(home, /<figure\s+class=["']hero-art["'][\s\S]*?<canvas\s+class=["']hero-art-canvas["']/i);
+	assert.match(home, /<button\s+class=["']wireframe-toggle["']/i);
+	assert.match(home, /<a\s+href=["']#top["']>Studio<\/a>/i);
+	const imageSources = [...pages.values()].flatMap((source) => [...source.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)].map(([, src]) => src));
+	assert.ok(imageSources.every((src) => /\.webp$/i.test(src)), "general site images should use WebP");
+	assert.match(styles, /\.site-header \.site-logo\s*\{[^}]*aspect-ratio:\s*2/s);
+	assert.match(styles, /\.hero-art-controls\s*\{[^}]*align-self:\s*center/s);
+	assert.doesNotMatch(styles, /\.hero-art-controls\s*\{[^}]*left:\s*-8\.8%/s);
+	assert.match(styles, /\.hero-highlight\s*\{[^}]*background:\s*var\(--red\)/s);
+	assert.match(styles, /\.hero-rotator\s*\{[^}]*transition:\s*width 480ms/s);
+	assert.match(styles, /@media\s*\(min-width:\s*761px\)\s*and\s*\(max-width:\s*1259px\)/i);
 });
 
-// Require readable page metadata and descriptive alternative text for authored images.
-test("pages provide metadata and every image has an alternative text", () => {
+// Require page metadata and an alt attribute on every image, allowing decorative images to use an empty value.
+test("pages provide metadata and every image declares alternative text", () => {
 	for (const [pageName, source] of pages) {
 		assert.match(source, /<meta\s+name=["']viewport["']/i, `${pageName} needs a viewport declaration`);
 		assert.match(source, /<meta\s+name=["']description["']/i, `${pageName} needs a description`);
 		assert.match(source, /<title>[^<]+<\/title>/i, `${pageName} needs a title`);
 
 		for (const [, attributes] of source.matchAll(/<img\b([^>]*)>/gi)) {
-			const alt = attributeValue(attributes, "alt");
-			assert.ok(alt.trim(), `${pageName} has an image without alternative text`);
+			assert.match(attributes, /\balt\s*=/i, `${pageName} has an image without an alt attribute`);
 			const src = attributeValue(attributes, "src");
 			assert.ok(src && fs.existsSync(path.resolve(root, src)), `${pageName} has a missing image ${src}`);
 		}
@@ -76,23 +83,19 @@ test("the site keeps mobile and privacy constraints in source", () => {
 	assert.doesNotMatch(siteSource, /googletagmanager|google-analytics|facebook\.net\/tr|hotjar/i);
 });
 
-// Keep the published policy aligned with the current no-prompt Firebase analytics behavior.
-test("the privacy policy describes Horde Survivor Arena 3D analytics collection", () => {
+// Keep the policy's analytics disclosure general across GameSparks games.
+test("the privacy policy describes general analytics collection", () => {
 	const privacy = pages.get("privacy.html");
-	assert.match(privacy, /Horde Survivor Arena 3D sends gameplay and feature-use events, plus coarse performance measurements, to Firebase Analytics after Firebase initializes/i);
-	assert.match(privacy, /Firebase's pseudonymous app-instance identifier/i);
-	assert.match(privacy, /GameSparks events do not include your display name, chat text, linked account ID, or raw exception text/i);
-	assert.match(privacy, /do not require an operating-system permission prompt/i);
-	assert.match(privacy, /Analytics data is not used to personalize ads in the current project/i);
-	assert.doesNotMatch(privacy, /analytics[^.]{0,120}(?:opt-in|enable it in settings|manage analytics)/i);
+	assert.match(privacy, /<strong>Analytics and app quality:<\/strong> Where analytics is used, it collects general gameplay and feature-use events, coarse performance measurements, and standard app, device, and usage information\./i);
+	assert.match(privacy, /Analytics do not collect direct player identifiers such as your name, email address, display name, or GameSparks account ID\./i);
+	assert.match(privacy, /An analytics service may use a pseudonymous app-instance identifier that is not linked to your GameSparks account\./i);
+	assert.match(privacy, /We do not ask for separate in-game approval for this general analytics information\./i);
+	assert.doesNotMatch(privacy, /Horde Survivor Arena 3D sends|Firebase Analytics after Firebase initializes|Crashlytics/i);
 });
 
-// Keep the game's automatic Crashlytics disclosure accurate.
-test("the privacy policy describes automatic crash reporting without a prompt", () => {
+// Keep crash-reporting language general rather than promising a specific provider or game behavior.
+test("the privacy policy describes general crash diagnostics", () => {
 	const privacy = pages.get("privacy.html");
-	assert.match(privacy, /Crash diagnostics[\s\S]*?Horde Survivor Arena 3D uses Firebase Crashlytics to collect crash reports automatically/i);
-	assert.match(privacy, /without a launch permission prompt or an in-game opt-in/i);
-	assert.match(privacy, /We do not add display names, clan chat, linked account IDs, or user-entered text as custom crash data/i);
-	assert.match(privacy, /https:\/\/firebase\.google\.com\/support\/privacy/i);
+	assert.match(privacy, /<strong>Crash diagnostics:<\/strong> Where crash diagnostics are used, services may process the app version, device and operating system details, and crash or error information to help identify and fix problems\./i);
+	assert.doesNotMatch(privacy, /Horde Survivor Arena 3D uses Firebase Crashlytics|automatic crash reporting without a prompt/i);
 });
-
