@@ -1,0 +1,54 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='800' height='320' viewBox='0 0 800 320' fill='none' stroke='#b42127' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(40 20)'/>
+<path d='M7-3c-8-2-11 3-10 7 1 4 6 5 8 2 2-3-1-5-3-3' transform='translate(160 20)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(280 20)'/>
+<path d='M-10 0l6-7 6 14 6-14 6 14 6-7' transform='translate(400 20)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(520 20)'/>
+<path d='M-8 5c0-7 5-11 10-9 5 2 4 7 1 8-3 1-5-2-3-4' transform='translate(640 20)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(760 20)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(100 60)'/>
+<path d='M-10 0l6-7 6 14 6-14 6 14 6-7' transform='translate(220 60)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(340 60)'/>
+<path d='M-8 5c0-7 5-11 10-9 5 2 4 7 1 8-3 1-5-2-3-4' transform='translate(460 60)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(580 60)'/>
+<path d='M-10-3c4 6 8 6 12 0s8-6 12 0' transform='translate(700 60)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(40 100)'/>
+<path d='M-10 0l6-7 6 14 6-14 6 14 6-7' transform='translate(160 100)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(280 100)'/>
+<path d='M-8 5c0-7 5-11 10-9 5 2 4 7 1 8-3 1-5-2-3-4' transform='translate(400 100)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(520 100)'/>
+<path d='M-10-3c4 6 8 6 12 0s8-6 12 0' transform='translate(640 100)'/>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(760 100)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(100 140)'/>
+<path d='M-8 5c0-7 5-11 10-9 5 2 4 7 1 8-3 1-5-2-3-4' transform='translate(220 140)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(340 140)'/>
+<path d='M-10-3c4 6 8 6 12 0s8-6 12 0' transform='translate(460 140)'/>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(580 140)'/>
+<path d='M7-3c-8-2-11 3-10 7 1 4 6 5 8 2 2-3-1-5-3-3' transform='translate(700 140)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(40 180)'/>
+<path d='M-8 5c0-7 5-11 10-9 5 2 4 7 1 8-3 1-5-2-3-4' transform='translate(160 180)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(280 180)'/>
+<path d='M-10-3c4 6 8 6 12 0s8-6 12 0' transform='translate(400 180)'/>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(520 180)'/>
+<path d='M7-3c-8-2-11 3-10 7 1 4 6 5 8 2 2-3-1-5-3-3' transform='translate(640 180)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(760 180)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(100 220)'/>
+<path d='M-10-3c4 6 8 6 12 0s8-6 12 0' transform='translate(220 220)'/>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(340 220)'/>
+<path d='M7-3c-8-2-11 3-10 7 1 4 6 5 8 2 2-3-1-5-3-3' transform='translate(460 220)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(580 220)'/>
+<path d='M-10 0l6-7 6 14 6-14 6 14 6-7' transform='translate(700 220)'/>
+<path d='M-10 4c6-8 14-8 20 0' transform='translate(40 260)'/>
+<path d='M-10-3c4 6 8 6 12 0s8-6 12 0' transform='translate(160 260)'/>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(280 260)'/>
+<path d='M7-3c-8-2-11 3-10 7 1 4 6 5 8 2 2-3-1-5-3-3' transform='translate(400 260)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(520 260)'/>
+<path d='M-10 0l6-7 6 14 6-14 6 14 6-7' transform='translate(640 260)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(760 260)'/>
+<path d='M-10 0c4-6 8-6 12 0s8 6 12 0' transform='translate(100 300)'/>
+<path d='M7-3c-8-2-11 3-10 7 1 4 6 5 8 2 2-3-1-5-3-3' transform='translate(220 300)'/>
+<path d='M0-7a7 7 0 1 0 0 14a7 7 0 1 0 0-14' transform='translate(340 300)'/>
+<path d='M-10 0l6-7 6 14 6-14 6 14 6-7' transform='translate(460 300)'/>
+<path d='M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z' transform='translate(580 300)'/>
+<path d='M-8 5c0-7 5-11 10-9 5 2 4 7 1 8-3 1-5-2-3-4' transform='translate(700 300)'/>
+</svg>

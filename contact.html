@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b42127">
+  <meta name="description" content="Have a question for GameSparks? Get in touch with our studio.">
+  <title>Contact — GameSparks</title>
+  <link rel="icon" href="assets/images/gs-favicon.png" type="image/png">
+  <link rel="preload" href="assets/fonts/Fredoka.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gs-nav-icon.webp" alt="GameSparks logo"></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="index.html#top">Studio</a><a href="index.html#games">Games</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a aria-current="page" href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main id="main" class="contact-page">
+    <div class="contact-intro">
+      <div class="section-label">Have a question?</div>
+      <h1>Send us a message</h1>
+      <p>Send us a message about a game, an account, or working with us, and we’ll get back to you as quickly as we can.</p>
+    </div>
+    <div class="contact-layout">
+      <aside class="contact-note">
+        <h2>A quick heads-up</h2>
+        <p>Please don’t include passwords, sign-in codes, or full payment details. For account help, name the game and describe what happened.</p>
+        <p>Prefer email? Write to <a href="mailto:gamesparksllc@gmail.com">gamesparksllc@gmail.com</a>.</p>
+        <p>Read our <a href="privacy.html">Privacy Policy</a> to learn how contact details and messages are handled.</p>
+      </aside>
+      <form class="contact-form" id="contact-form" novalidate>
+        <label>Your name<input name="name" autocomplete="name" maxlength="80" required aria-describedby="name-error"><span class="field-error" id="name-error" role="alert" hidden></span></label>
+        <label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="email-error"><span class="field-error" id="email-error" role="alert" hidden></span></label>
+        <div class="field-group" id="topic-field">
+          <span class="field-label" id="topic-label">What’s this about?</span>
+          <input name="topic" type="hidden" value="">
+          <div class="custom-select">
+            <button class="select-trigger" id="topic-trigger" type="button" role="combobox" aria-labelledby="topic-label topic-value" aria-controls="topic-options" aria-expanded="false" aria-haspopup="listbox" aria-required="true" aria-describedby="topic-error">
+              <span id="topic-value">Choose a topic</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg>
+            </button>
+            <div class="select-options" id="topic-options" role="listbox" aria-labelledby="topic-label" hidden>
+              <div role="option" tabindex="-1" aria-selected="false" data-value="Game feedback">Game feedback</div>
+              <div role="option" tabindex="-1" aria-selected="false" data-value="Account or purchase help">Account or purchase help</div>
+              <div role="option" tabindex="-1" aria-selected="false" data-value="Privacy request">Privacy request</div>
+              <div role="option" tabindex="-1" aria-selected="false" data-value="Business enquiry">Business enquiry</div>
+              <div role="option" tabindex="-1" aria-selected="false" data-value="Something else">Something else</div>
+            </div>
+          </div>
+          <p class="field-error" id="topic-error" role="alert" hidden></p>
+        </div>
+        <label>Your message<textarea name="message" minlength="8" maxlength="4000" required aria-describedby="message-error"></textarea><span class="field-error" id="message-error" role="alert" hidden></span></label>
+        <div class="contact-honeypot" aria-hidden="true"><label>Leave this field empty<input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+        <input name="formStartedAt" type="hidden">
+        <div class="captcha-slot" id="contact-captcha"></div>
+        <p class="captcha-notice">Spam protection is provided by Cloudflare Turnstile. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.</p>
+        <button type="submit" disabled>Send message <span aria-hidden="true">↗</span></button>
+        <p class="form-message" id="contact-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gs-icon.webp" alt="GameSparks logo" loading="lazy" decoding="async"><span class="brand-note">Games Made by<br>GameSparks LLC</span></a>
+    
+    <nav aria-label="Legal and contact"><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
+    <small>© <span data-year>2026</span> GameSparks LLC</small>
+  </footer>
+  <script src="script.js" defer></script>
+  <script src="contact-config.js" defer></script>
+  <script src="contact.js" defer></script>
+</body>
+</html>

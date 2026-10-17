@@ -5,50 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#b42127">
   <meta name="description" content="GameSparks makes playful mobile games built around ideas worth exploring.">
-  <title>GameSparks — A little spark. A lot to play.</title>
-  <link rel="icon" href="assets/images/gamesparks-logo.png" type="image/png">
+  <title>GameSparks — We make games. You play them.</title>
+  <link rel="icon" href="assets/images/gs-favicon.png" type="image/png">
+  <link rel="preload" href="assets/fonts/Fredoka.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gamesparks-logo.png" alt="GameSparks logo"><span class="brand-note">Games worth<br>one more round.</span></a>
+  <header id="top" class="site-header">
+    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gs-nav-icon.webp" alt="GameSparks logo"></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="#studio">Studio</a><a href="#games">Games</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a>
+      <a href="#top">Studio</a><a href="#games">Games</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a>
     </nav>
   </header>
   <main id="main">
     <section class="hero">
       <div class="hero-copy">
-        <h1>A little spark.<br><span>A lot to play.</span></h1>
-        <p>GameSparks makes mobile games around clear, hands-on ideas. Our current game sends three heroes into a rising horde.</p>
-        <a class="button button-red" href="#games">Meet the game <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 4l6 6-6 6"/></svg></a>
+        <h1>
+          <span class="hero-visually-hidden">We make games you play, love, remember, enjoy, and adore.</span>
+          <span class="hero-line" aria-hidden="true"><span>WE</span><span class="hero-accent">MAKE</span><span>GAMES</span></span>
+          <span class="hero-line hero-line-rotating" aria-hidden="true"><span>YOU</span><span class="hero-rotator">
+            <span class="hero-highlight"></span>
+            <span class="hero-rotating-word is-active">PLAY</span>
+            <span class="hero-rotating-word is-waiting"></span>
+          </span></span>
+        </h1>
+        <p>From a spark of inspiration to fully playable games that put YOU first. We make mobile games we would like to play ourselves, and hope you will as well.</p>
+        <a class="button button-red" href="#games"><svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5h10a4 4 0 0 1 3.97 3.53l.52 4.2A3.5 3.5 0 0 1 18.02 16.5h-.45a2 2 0 0 1-1.42-.59l-1.58-1.58a3.64 3.64 0 0 0-5.14 0l-1.58 1.58a2 2 0 0 1-1.42.59h-.45a3.5 3.5 0 0 1-3.47-3.93l.52-4.04A4 4 0 0 1 7 5Z"/><path d="M8 9v4M6 11h4M16 10h.01M18 12h.01"/></svg><span>Our Games</span><svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-      <div class="hero-art" aria-label="Nyan, a hero from Horde Survivor Arena 3D">
-        <span class="hero-burst burst-one" aria-hidden="true"></span><span class="hero-burst burst-two" aria-hidden="true"></span>
-        <span class="hero-brand-sticker"><img src="assets/images/gamesparks-logo.png" alt="GameSparks"></span>
-        <img class="hero-character" src="assets/images/nyan-portrait.png" alt="Nyan, a cat hero from Horde Survivor Arena 3D">
-        <span class="hero-art-label">Ready for the horde?</span>
-      </div>
+      <figure class="hero-art" aria-label="Luna from Horde Survivor Arena 3D. Drag horizontally or use the left and right arrow keys to rotate her.">
+        <div class="hero-art-frame">
+          <canvas class="hero-art-canvas" tabindex="0" role="img" aria-label="Interactive 3D model of Luna. Drag horizontally or use the left and right arrow keys to rotate her."></canvas>
+          <p class="hero-art-status is-loading" role="status" aria-live="polite">
+            <svg class="hero-status-loading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v6h6"/><path d="M21 12A9 9 0 0 0 6 5.3L3 8"/><path d="M21 22v-6h-6"/><path d="M3 12a9 9 0 0 0 15 6.7L21 16"/></svg>
+            <svg class="hero-status-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
+            <span class="hero-visually-hidden">Loading Luna's 3D preview.</span>
+          </p>
+        </div>
+        <div class="hero-art-controls">
+          <button class="wireframe-toggle" type="button" aria-pressed="false" aria-label="Toggle Luna wireframe view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.3 7.6 7.7 4.3 7.7-4.3M12 12v9M8 5.3l8 4.5"/></svg>
+            <span>Wireframe: Off</span>
+          </button>
+          <p class="hero-rotate-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="7"/><path d="M12 6v4"/></svg><span>Drag to rotate</span></p>
+        </div>
+      </figure>
     </section>
     <section id="studio" class="studio section-wrap">
-      <div><h2>Ideas made<br>for play.</h2><p>We’re building Horde Survivor Arena 3D, a portrait arena survival game for Android and iOS. Between runs, players choose a stage, shape a loadout and improve their gear.</p></div>
+      <div class="studio-main">
+        <figure class="studio-art">
+          <img src="assets/images/studio-art.webp" alt="A warm game-design workspace with a sketchbook, notes, and coffee mug" width="888" height="500" loading="lazy" decoding="async">
+        </figure>
+        <div class="studio-copy">
+          <p class="studio-eyebrow">Game Sparks • Independent Game Studio</p>
+          <h2>Games made with players in mind.</h2>
+          <p>GameSparks is an independent game studio based in Florida. We make mobile games for Android and iOS, and hope you'll enjoy them for years to come.</p>
+        </div>
+      </div>
     </section>
     <section id="games" class="games section-wrap">
-      <div class="section-heading"><h2>Meet the horde.</h2><span class="game-count">OUR CURRENT GAME</span></div>
+      <div class="section-heading"><h2>Our Games</h2></div>
       <article class="game-feature">
-        <div class="game-art"><span class="game-art-spark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 2l4.4 15.6L44 11l-7.2 15.6L47 34l-16.3-.7L24 48l-5-14.7L2 38l8-14.6L0 13l16.2 2.3z"/></svg></span><img src="assets/images/nyan-portrait.png" alt="Nyan, one of the heroes in Horde Survivor Arena 3D"><span class="arena-label">SURVIVE<br>THE HORDE</span></div>
-        <div class="game-copy"><p class="game-platform">ANDROID · iOS</p><h3>Horde Survivor Arena 3D</h3><p>Choose a hero, shape a loadout and outlast each wave before the stage boss arrives.</p><span class="availability">In development</span></div>
+        <div class="game-art" aria-hidden="true"><img class="game-art-background" src="assets/images/banner-back.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="game-character-stage">
+          <div class="game-characters" role="img" aria-label="Luna and Nyan leaping forward together">
+            <img class="game-character-art" src="assets/images/banner-front.webp" alt="" aria-hidden="true" decoding="async">
+            <span class="game-character-sheen" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="game-copy"><img class="game-crown" src="assets/images/crown.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"><p class="game-platform">ANDROID GAME</p><h3>Horde Survivor <span class="game-title-lockup">Arena 3D</span></h3><p>Choose a hero, build a loadout around your favorite weapons and upgrades, and take on increasingly dangerous waves. Collect gear, grow stronger between runs, and see how long you can last before the stage boss arrives.</p><a class="availability" href="https://play.google.com/store/apps/details?id=com.GameSparks.HordeSurvivorArena3D" aria-label="Get Horde Survivor Arena 3D on Android"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg><span>Android</span><svg class="android-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
       </article>
-      <div class="upcoming-work"><span class="upcoming-label">What’s next?</span><p>We’ll add future GameSparks games here when they’re ready to share.</p><span class="upcoming-spark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 2l4.4 15.6L44 11l-7.2 15.6L47 34l-16.3-.7L24 48l-5-14.7L2 38l8-14.6L0 13l16.2 2.3z"/></svg></span></div>
+      <div class="upcoming-work"><span class="upcoming-label">What’s next?</span><p>We’ll add future GameSparks games<br>when they’re ready to share.</p><span class="upcoming-rocket" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 4.5-2 4.5s3.24-.5 4.5-2c.71-.84.7-2.13-.09-2.91a2.17 2.17 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6.05 11A22 22 0 0 1 12 15Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M14.5 9.5h.01"/></svg></span></div>
     </section>
-    <section class="closing section-wrap"><p>Go on.<br><em>Take another turn.</em></p><a href="support.html">Need a hand? Visit support <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M6 5h9v9"/></svg></a></section>
+    <section class="closing section-wrap"><p>Have any<br><em>questions?</em></p><a href="contact.html">Contact us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M6 5h9v9"/></svg></a></section>
   </main>
   <footer class="site-footer">
-    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gamesparks-logo.png" alt="GameSparks logo"><span class="brand-note">Games worth<br>one more round.</span></a>
-    <p>Mobile games.<br>Made by GameSparks LLC.</p>
-    <nav aria-label="Legal and support"><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a></nav>
+    <a class="wordmark" href="index.html" aria-label="GameSparks home"><img class="site-logo" src="assets/images/gs-icon.webp" alt="GameSparks logo" loading="lazy" decoding="async"><span class="brand-note">Games Made by<br>GameSparks LLC</span></a>
+    
+    <nav aria-label="Legal and contact"><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
     <small>© <span data-year>2026</span> GameSparks LLC</small>
   </footer>
   <script src="script.js" defer></script>
